@@ -1,14 +1,22 @@
+import { useTheme } from 'jupiterui-components';
 import React from 'react';
 import ReactFlow, {
 	Background,
 	removeElements,
 	addEdge,
-} from 'react-flow-renderer';
+	isEdge,
+	isNode,
+} from 'react-flow-renderer/nocss';
+import 'react-flow-renderer/dist/style.css';
+
 import Keyboard from './Keyboard';
 
 const FlowPane = ({
 	elements,
 	setElements,
+	createNode,
+	createEdge,
+	createConnectedNode,
 	info,
 	setInfo,
 	getId,
@@ -17,15 +25,27 @@ const FlowPane = ({
 	setKeyboardModal,
 	helpModal,
 	setHelpModal,
-	setNodeName
+	exportModal,
+	setExportModal,
+	importModal,
+	setImportModal,
+	setNodeLabel,
+	setNodeType,
+	edge,
+	setEdge,
 }) => {
+	const {
+		themes: { theme },
+	} = useTheme();
 
 	// Events
 	const onElementsRemove = (elementsToRemove) => {
 		setElements((els) => removeElements(elementsToRemove, els));
 	};
 
-	const onConnect = (params) => setElements((els) => addEdge(params, els));
+	const onConnect = (params) => {
+		setElements((els) => addEdge(params, els));
+	};
 
 	const onNodeDragStop = (ev, node) => {
 		const newList = elements.map((item) => {
@@ -46,60 +66,45 @@ const FlowPane = ({
 	const onNodeDoubleClick = () => {
 		document.getElementById('currentNodeName').focus();
 		document.getElementById('currentNodeName').select();
-	}
+	};
 
-	const onElementClick = (el) => {
+	const onLoad = (reactFlowInstance) => {
+		reactFlowInstance.fitView();
+	};
+
+	const onSelectionChange = (els) => {
+		const e = els && els.length > 0 ? els[0] : {};
+
+		if (isEdge(e)) {
+			setNodeType('edge');
+			setEdge(e);
+		}
+
+		if (isNode(e)) {
+			setNodeType('node');
+			setEdge({});
+			setInfo(e);
+		}
+	};
+
+	const setCurrentNode = (el) => {
 		setInfo(el);
-		setNodeName(el?.data?.label);
-	}
+		setNodeLabel(el?.data?.label);
+	};
 
 	// Data modifications
-
-	const createNode = (ev, el, pos = 'bottom', type = 'default') => {
-		ev.preventDefault();
-
-		const identifier = getId();
-
-		const position = {
-			x: pos === 'bottom' ? el.position.x : el.position.x + 200,
-			y: pos === 'bottom' ? el.position.y + 100 : el.position.y,
-		};
-
-		setElements((e) =>
-			e.concat({
-				id: identifier,
-				type: type,
-				data: { label: 'New node' },
-				position: position,
-			})
-		);
-
-		return identifier;
-	};
-
-	const createEdge = (parent, node) => {
-		setElements((e) =>
-			e.concat({
-				id: getId(),
-				source: parent.id.toString(),
-				target: node,
-				animated: false,
-			})
-		);
-	};
-
-	const createConnectedNode = (ev, parent) => {
-		const node = createNode(ev, parent);
-		createEdge(parent, node);
-	};
 
 	return (
 		<div className='h-screen w-screen'>
 			<ReactFlow
 				elements={elements}
 				onElementsRemove={onElementsRemove}
-				onElementClick={(ev, el) => onElementClick(el)}
-				onNodeDrag={(ev, el) => setInfo(el)}
+				onElementClick={(ev, el) => setCurrentNode(el)}
+				onNodeDrag={(ev, el) => setCurrentNode(el)}
+				onSelectionChange={onSelectionChange}
+				onEdgeContextMenu={(ev, el) => {
+					ev.preventDefault();
+				}}
 				onConnect={onConnect}
 				deleteKeyCode={46}
 				connectionMode={'loose'}
@@ -109,11 +114,16 @@ const FlowPane = ({
 				onNodeDragStop={onNodeDragStop}
 				snapToGrid={settings.snapToGrid}
 				snapGrid={[16, 16]}
+				onLoad={onLoad}
 			>
 				<Background
 					variant={settings.backgroundType}
 					color={
-						settings.backgroundType === 'lines' ? '#ddd' : '#000'
+						theme === 'dark'
+							? '#777'
+							: settings.backgroundType === 'lines'
+							? '#ddd'
+							: '#000'
 					}
 					gap={16}
 					className={'ui'}
@@ -128,6 +138,10 @@ const FlowPane = ({
 				setKeyboardModal={setKeyboardModal}
 				helpModal={helpModal}
 				setHelpModal={setHelpModal}
+				exportModal={exportModal}
+				setExportModal={setExportModal}
+				importModal={importModal}
+				setImportModal={setImportModal}
 			/>
 		</div>
 	);

@@ -1,12 +1,26 @@
+body {
+	max-height: 100vh;
+	overflow-y: hidden;
+}
+
 .k-input {
-	border: 2px solid var(--ui-2);
+	width: auto;
+	display: flex;
+	border: 1px solid var(--ui-2);
 	box-shadow: none;
 	outline: none;
 	color: var(--text-color);
-	border-radius: 0.25rem;
-	padding: 0.15rem 0.25rem;
+	background-color: var(--ui);
+	border-radius: 90px;
+	padding: 0.15rem 0.5rem;
 	transition: var(--duration-fast-02) var(--expressive-standard);
 }
 .k-input:focus {
 	border-color: var(--accent);
+}
+
+.flex-code {
+	display: flex;
+	overflow-x: scroll;
+	max-width: 100%;
 }

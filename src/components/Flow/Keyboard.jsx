@@ -1,22 +1,34 @@
 import KeyboardEventHandler from 'react-keyboard-event-handler';
 
-const Keyboard = ({ info, createNode, createConnectedNode, keyboardModal, setKeyboardModal, helpModal, setHelpModal }) => {
+const Keyboard = ({
+	info,
+	createNode,
+	createConnectedNode,
+	keyboardModal,
+	setKeyboardModal,
+	helpModal,
+	setHelpModal,
+	exportModal,
+	setExportModal,
+	importModal,
+	setImportModal
+}) => {
 	const handleEnter = (e) => {
 		if (info) {
 			createNode(e, info, 'right');
 		}
-	}
+	};
 
 	const handleTab = (e) => {
 		if (info) {
 			createConnectedNode(e, info);
 		}
-	}
+	};
 
 	return (
 		<div>
 			<KeyboardEventHandler
-				handleKeys={['enter', 'tab', 'k', 'h']}
+				handleKeys={['enter', 'tab', 'k', 'h', 'e', 'i', 'space']}
 				onKeyEvent={(key, e) => {
 					switch (key) {
 						case 'enter':
@@ -30,6 +42,17 @@ const Keyboard = ({ info, createNode, createConnectedNode, keyboardModal, setKey
 							break;
 						case 'h':
 							setHelpModal(!helpModal);
+							break;
+						case 'e':
+							setExportModal(!exportModal);
+							break;
+						case 'i':
+							setImportModal(!importModal);
+							break;
+						case 'space':
+							e.preventDefault();
+							document.getElementById('currentNodeName').focus();
+							document.getElementById('currentNodeName').select();
 							break;
 						default:
 							break;
