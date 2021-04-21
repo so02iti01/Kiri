@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 
-import './styles/jupiterui.css';
+import './styles/k.css';
 
 ReactDOM.render(
 	<React.StrictMode>

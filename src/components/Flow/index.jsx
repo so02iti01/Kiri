@@ -48,6 +48,43 @@ const Flow = () => {
 
 	const getId = () => `node_${Math.random().toString(36).substring(7)}`;
 
+	// const modifyNode = (node, key, value) => {
+	// 	console.log('hehe')
+	// 	const newList = elements.map((item) => {
+	// 		if (item.id === node.id) {
+	// 			let updatedItem = {
+	// 				...node,
+	// 			};
+
+	// 			updatedItem.data[key] = value;
+
+	// 			return updatedItem;
+	// 		}
+
+	// 		return item;
+	// 	});
+
+	// 	setElements(newList);
+	// }
+
+	// Nodes
+	const [nodeName, setNodeName] = useState();
+
+	useEffect(() => {
+		setElements((els) =>
+		  els.map((el) => {
+			if (el.id === info?.id) {
+			  el.data = {
+				...el.data,
+				label: nodeName,
+			  };
+			}
+	
+			return el;
+		  })
+		);
+	  }, [nodeName, setElements]);
+
 	// Modals
 	const [keyboardModal, setKeyboardModal] = useState(false);
 	const [helpModal, setHelpModal] = useState(false);
@@ -65,6 +102,7 @@ const Flow = () => {
 				setKeyboardModal={setKeyboardModal}
 				helpModal={helpModal}
 				setHelpModal={setHelpModal}
+				setNodeName={setNodeName}
 			/>
 
 			<Actions
@@ -73,7 +111,7 @@ const Flow = () => {
 				getId={getId}
 			/>
 
-			<Info info={info} />
+			<Info info={info} nodeName={nodeName} setNodeName={setNodeName} />
 
 			<ActionBar />
 

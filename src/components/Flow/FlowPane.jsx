@@ -17,7 +17,10 @@ const FlowPane = ({
 	setKeyboardModal,
 	helpModal,
 	setHelpModal,
+	setNodeName
 }) => {
+
+	// Events
 	const onElementsRemove = (elementsToRemove) => {
 		setElements((els) => removeElements(elementsToRemove, els));
 	};
@@ -39,6 +42,18 @@ const FlowPane = ({
 
 		setElements(newList);
 	};
+
+	const onNodeDoubleClick = () => {
+		document.getElementById('currentNodeName').focus();
+		document.getElementById('currentNodeName').select();
+	}
+
+	const onElementClick = (el) => {
+		setInfo(el);
+		setNodeName(el?.data?.label);
+	}
+
+	// Data modifications
 
 	const createNode = (ev, el, pos = 'bottom', type = 'default') => {
 		ev.preventDefault();
@@ -83,12 +98,12 @@ const FlowPane = ({
 			<ReactFlow
 				elements={elements}
 				onElementsRemove={onElementsRemove}
-				onElementClick={(ev, el) => setInfo(el)}
+				onElementClick={(ev, el) => onElementClick(el)}
 				onNodeDrag={(ev, el) => setInfo(el)}
 				onConnect={onConnect}
 				deleteKeyCode={46}
 				connectionMode={'loose'}
-				onNodeDoubleClick={createNode}
+				onNodeDoubleClick={onNodeDoubleClick}
 				panOnScroll
 				zoomOnScroll={false}
 				onNodeDragStop={onNodeDragStop}

@@ -1,0 +1,12 @@
+.k-input {
+	border: 2px solid var(--ui-2);
+	box-shadow: none;
+	outline: none;
+	color: var(--text-color);
+	border-radius: 0.25rem;
+	padding: 0.15rem 0.25rem;
+	transition: var(--duration-fast-02) var(--expressive-standard);
+}
+.k-input:focus {
+	border-color: var(--accent);
+}

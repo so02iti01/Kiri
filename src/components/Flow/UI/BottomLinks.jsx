@@ -16,6 +16,7 @@ const BottomLinks = ({ setKeyboardModal, setHelpModal }) => {
 				<button
 					onClick={e.callback}
 					className='j-link shallow-link fs-xs text-dynamic-07 bg-transparent mr-0-5r'
+					key={e.label}
 				>
 					{e.label}
 				</button>
