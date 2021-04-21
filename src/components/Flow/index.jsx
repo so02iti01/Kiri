@@ -16,8 +16,8 @@ const Flow = () => {
 			id: '1',
 			type: 'input',
 			data: { label: 'Central topic' },
-			position: { x: 500, y: 500 },
-		}
+			position: { x: 0, y: 0 },
+		},
 	];
 
 	const initialSettings = {
@@ -89,11 +89,18 @@ const Flow = () => {
 	const createNode = (ev, el, pos = 'bottom', type = 'default') => {
 		ev.preventDefault();
 
+		let y, x = 0;
+
+		if (el.position) {
+			y = el.position.y;
+			x = el.position.x;
+		}
+
 		const identifier = getId();
 
 		const position = {
-			x: pos === 'bottom' ? el.position.x : el.position.x + 200,
-			y: pos === 'bottom' ? el.position.y + 100 : el.position.y,
+			x: pos === 'bottom' ? x : x + 200,
+			y: pos === 'bottom' ? y + 100 : y,
 		};
 
 		setElements((e) =>
@@ -151,9 +158,11 @@ const Flow = () => {
 			/>
 
 			<Actions
+				info={info}
 				elements={elements}
 				setElements={setElements}
 				getId={getId}
+				createNode={createNode}
 			/>
 
 			<ActionBar

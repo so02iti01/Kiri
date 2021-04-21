@@ -6,7 +6,7 @@ const EdgePane = ({ info, edge, elements, setElements }) => {
 	return <></>;
 
 	// return (
-	// 	<div className='absolute top-20 right-20 mnw-10r ui border-ui-2 p-0-5r radius-8'>
+	// 	<div className='absolute top-16 right-16 mnw-10r ui border-ui-2 p-0-5r radius-8'>
 	// 		<div className='flex flex-row align-c'>
 	// 			<label className='j-switch'>
 	// 				<input

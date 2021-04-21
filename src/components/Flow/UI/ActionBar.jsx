@@ -32,7 +32,7 @@ const ActionBar = ({
 	];
 
 	return (
-		<div className='absolute top-20 left-20 backdrop-blur-5 radius-90 border-ui-2 flex flex-row align-c z-999 overflow-hidden mxh-2r'>
+		<div className='absolute top-16 left-16 backdrop-blur-5 radius-90 border-ui-2 flex flex-row align-c z-999 overflow-hidden mxh-2r'>
 			<div className='h-100p flex-c px-0-5r'>
 				<span className='fs-xs text-upper fw-600'>Kiri</span>
 			</div>

@@ -1,6 +1,6 @@
 const NodePane = ({ info, nodeLabel, setNodeLabel }) => {
 	return (
-		<div className='absolute top-20 right-20 mnw-10r'>
+		<div className='absolute top-16 right-16 mnw-10r'>
 			{info && (
 				<div className='flex-c w-100p'>
 					<div className='w-100p'>

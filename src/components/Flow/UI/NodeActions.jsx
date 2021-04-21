@@ -35,7 +35,7 @@ const NodeActions = ({ view, elements, setElements, info, createNode, createConn
 
 	return (
 		info && view === 'node' && (
-			<div className='absolute h-100p flex-c left-20 top-0 bottom-0'>
+			<div className='absolute h-100p flex-c left-16 top-0 bottom-0'>
 				<div className='backdrop-blur-5 border-ui-2 flex-c radius-90'>
 					<div className='flex-c p-0-25r'>
 						{actions.map((e) => (
