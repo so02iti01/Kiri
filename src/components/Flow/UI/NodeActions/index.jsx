@@ -14,7 +14,7 @@ const NodeActions = ({
 	const colors = [
 		{
 			color: 'gray',
-			weight: '100',
+			weight: '70',
 		},
 		{
 			color: 'blue',
