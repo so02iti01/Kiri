@@ -1,8 +1,9 @@
-const BottomLinks = ({ setKeyboardModal, setHelpModal, settings }) => {
-	const links = [
+const UtilityLinks = ({ setKeyboardModal, setHelpModal, settings }) => {
+	const actions = [
 		{
 			label: 'Keyboard shortcuts (K)',
 			callback: () => setKeyboardModal(true),
+			className: 'portrait-hide'
 		},
 		{
 			label: 'Help (H)',
@@ -10,7 +11,7 @@ const BottomLinks = ({ setKeyboardModal, setHelpModal, settings }) => {
 		},
 	];
 
-	const rightLinks = [
+	const links = [
 		{
 			label: 'View repository',
 			to: 'https://codeberg.org/athena/Kiri',
@@ -18,13 +19,13 @@ const BottomLinks = ({ setKeyboardModal, setHelpModal, settings }) => {
 	];
 
 	return (
-		<div className='absolute bottom-16 left-0 right-0 w-100p px-1r flex flex-row align-c portrait-hide'>
+		<div className='absolute bottom-16 left-0 right-0 w-100p px-1r flex flex-row align-c'>
 			<div className={`w-100p ${settings.miniMap ? 'flex flex-row align-c' : 'flex-sb'}`}>
 				<div className='flex flex-row align-c'>
-					{links.map((e) => (
+					{actions.map((e) => (
 						<button
 							onClick={e.callback}
-							className='j-link shallow-link fs-xs text-dynamic-07 bg-transparent mr-0-5r'
+							className={`j-link shallow-link fs-xs text-dynamic-07 bg-transparent mr-0-5r ${e.className}`}
 							key={e.label}
 						>
 							{e.label}
@@ -32,8 +33,8 @@ const BottomLinks = ({ setKeyboardModal, setHelpModal, settings }) => {
 					))}
 				</div>
 
-				<div className='flex flex-row align-c'>
-					{rightLinks.map((e) => (
+				<div className='flex flex-row align-c portrait-hide'>
+					{links.map((e) => (
 						<a	
 							href={e.to}
 							target='_blank'
@@ -50,4 +51,4 @@ const BottomLinks = ({ setKeyboardModal, setHelpModal, settings }) => {
 	);
 };
 
-export default BottomLinks;
+export default UtilityLinks;

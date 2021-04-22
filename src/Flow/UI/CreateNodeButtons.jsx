@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Actions = ({ currentItem, createNode, setElements, getId }) => {
+const CreateNodeButtons = ({ currentItem, createNode, setElements, getId }) => {
 	const [showLabels, setShowLabels] = useState(false);
 
 	const createNodeByType = (ev, type) => {
@@ -51,4 +51,4 @@ const Actions = ({ currentItem, createNode, setElements, getId }) => {
 	);
 };
 
-export default Actions;
+export default CreateNodeButtons;

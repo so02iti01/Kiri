@@ -1,21 +1,22 @@
-import { icons } from '../../../../config/icons';
+import { icons } from '../../../config/icons';
 
-const Edges = ({ elements, setElements, currentItem, modifyNode }) => {
+const Nodes = ({
+	elements,
+	setElements,
+	createNode,
+	createConnectedNode,
+	currentItem,
+}) => {
 	const actions = [
 		{
-			label: 'Curvy',
-			callback: () => modifyNode(currentItem, 'type', 'default'),
-			icon: icons.lines.curved,
+			label: 'Create connected child',
+			icon: icons.addChildNode,
+			callback: (e) => createConnectedNode(e, currentItem),
 		},
 		{
-			label: 'Straight',
-			callback: () => modifyNode(currentItem, 'type', 'straight'),
-			icon: icons.lines.straight,
-		},
-		{
-			label: 'Smoothstep',
-			callback: () => modifyNode(currentItem, 'type', 'smoothstep'),
-			icon: icons.lines.step,
+			label: 'Create sibling',
+			icon: icons.addSiblingNode,
+			callback: (e) => createNode(e, currentItem, 'right'),
 		},
 	];
 
@@ -33,17 +34,24 @@ const Edges = ({ elements, setElements, currentItem, modifyNode }) => {
 			icon: icons.delete,
 			className: 'bg-hover-red-10 text-hover-red-60',
 			callback: () => {
-				setElements(elements.filter((e) => e.id !== currentItem.id));
+				setElements(
+					elements.filter(
+						(e) =>
+							e.id !== currentItem.id &&
+							e.source !== currentItem.id &&
+							e.target !== currentItem.id
+					)
+				);
 			},
 		},
 	];
 
 	return (
 		<>
-			<div className='flex p-0-25r'>
+			<div className='flex-c p-0-25r'>
 				{actions.map((e) => (
 					<button
-						className='j-button no-push minimal app radius-90 icon-only set-stroke'
+						className='j-button no-push minimal app icon-only radius-90'
 						onClick={e.callback}
 						key={e.label}
 						aria-label={e.label}
@@ -75,4 +83,4 @@ const Edges = ({ elements, setElements, currentItem, modifyNode }) => {
 	);
 };
 
-export default Edges;
+export default Nodes;

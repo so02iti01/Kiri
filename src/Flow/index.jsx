@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react';
 import FlowPane from './FlowPane';
 
 // UI
-import ActionBar from './UI/ActionBar';
-import Actions from './UI/Actions';
-import BottomLinks from './UI/BottomLinks';
+import UtilityBar from './UI/UtilityBar';
+import CreateNodeButtons from './UI/CreateNodeButtons';
+import UtilityLinks from './UI/UtilityLinks';
 import Modals from './UI/Modals';
 import NodeActions from './UI/NodeActions';
 import EditPanes from './UI/EditPanes';
@@ -192,7 +192,7 @@ const Flow = () => {
 				setCurrentItem={setCurrentItem}
 			/>
 
-			<Actions
+			<CreateNodeButtons
 				currentItem={currentItem}
 				elements={elements}
 				setElements={setElements}
@@ -200,7 +200,7 @@ const Flow = () => {
 				createNode={createNode}
 			/>
 
-			<ActionBar
+			<UtilityBar
 				exportModal={exportModal}
 				setExportModal={setExportModal}
 				importModal={importModal}
@@ -209,7 +209,7 @@ const Flow = () => {
 				setSettingsModal={setSettingsModal}
 			/>
 
-			<BottomLinks
+			<UtilityLinks
 				setKeyboardModal={setKeyboardModal}
 				setHelpModal={setHelpModal}
 				settings={settings}

@@ -1,8 +1,8 @@
 import { useTheme } from 'jupiterui-components';
 
-import { icons } from '../../../config/icons';
+import { icons } from '../../config/icons';
 
-const ActionBar = ({
+const UtilityBar = ({
 	exportModal,
 	setExportModal,
 	importModal,
@@ -88,4 +88,4 @@ const ActionBar = ({
 	);
 };
 
-export default ActionBar;
+export default UtilityBar;
