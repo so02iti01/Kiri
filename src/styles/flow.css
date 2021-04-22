@@ -3,7 +3,7 @@
 	border: 1px dotted rgba(0, 89, 220, 0.8);
 }
 .react-flow__edge.selected .react-flow__edge-path {
-	stroke: #555;
+	stroke: var(--ui-4);
 }
 .react-flow__edge.animated path {
 	stroke-dasharray: 5;
@@ -80,7 +80,7 @@
 	background: var(--magenta-60);
 }
 .react-flow__nodesselection-rect {
-	background: rgba(0, 89, 220, 0.08);
+	background: var(--text-color-015);
 	border: 1px dotted rgba(0, 89, 220, 0.8);
 }
 .react-flow__handle {
@@ -88,21 +88,21 @@
 	width: 6px;
 	height: 6px;
 	background: #555;
-	border: 1px solid white;
+	border: 1px solid var(--ui);
 	border-radius: 100%;
 }
 .react-flow__handle.connectable {
 	cursor: crosshair;
 }
 .react-flow__minimap {
-	background-color: #fff;
+	background-color: var(--ui);
 }
 .react-flow__controls {
 	box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.08);
 }
 .react-flow__controls-button {
-	background: #fefefe;
-	border-bottom: 1px solid #eee;
+	background: var(--ui-1);
+	border-bottom: 1px solid var(--ui-2);
 	box-sizing: content-box;
 	display: flex;
 	justify-content: center;

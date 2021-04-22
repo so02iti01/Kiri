@@ -6,6 +6,7 @@ import ReactFlow, {
 	addEdge,
 	isEdge,
 	isNode,
+	MiniMap,
 } from 'react-flow-renderer/nocss';
 import 'react-flow-renderer/dist/style.css';
 
@@ -116,18 +117,38 @@ const FlowPane = ({
 				snapGrid={[16, 16]}
 				onLoad={onLoad}
 			>
-				<Background
-					variant={settings.backgroundType}
-					color={
-						theme === 'dark'
-							? '#777'
-							: settings.backgroundType === 'lines'
-							? '#ddd'
-							: '#000'
-					}
-					gap={16}
-					className={'ui'}
-				/>
+				{settings.background && (
+					<Background
+						variant={settings.backgroundType}
+						color={
+							theme === 'dark'
+								? '#777'
+								: settings.backgroundType === 'lines'
+								? '#ddd'
+								: '#000'
+						}
+						gap={16}
+						className={'ui'}
+					/>
+				)}
+
+				{settings.miniMap && (
+					<MiniMap
+						nodeColor={(node) => {
+							switch (node.type) {
+								case 'input':
+									return 'var(--blue-60)';
+								case 'default':
+									return 'var(--ui-yinyang)';
+								case 'output':
+									return 'var(--magenta-60)';
+								default:
+									return '#eee';
+							}
+						}}
+						nodeStrokeWidth={3}
+					/>
+				)}
 			</ReactFlow>
 
 			<Keyboard

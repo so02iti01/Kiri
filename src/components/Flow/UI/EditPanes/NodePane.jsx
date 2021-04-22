@@ -4,14 +4,14 @@ const NodePane = ({ info, nodeLabel, setNodeLabel }) => {
 			{info && (
 				<div className='flex-c w-100p'>
 					<div className='w-100p'>
-						<input
+						<textarea
 							id='currentNodeName'
 							className='k-input'
 							type='text'
 							placeholder={info?.data?.label}
 							value={nodeLabel}
 							onChange={(e) => setNodeLabel(e.target.value)}
-						/>
+						></textarea>
 					</div>
 					{/* <span>{info?.id?.replace('node_', '')}</span> */}
 				</div>

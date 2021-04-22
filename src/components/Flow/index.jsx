@@ -21,14 +21,18 @@ const Flow = () => {
 	];
 
 	const initialSettings = {
+		background: true,
 		backgroundType: 'dots',
 		snapToGrid: false,
+		miniMap: false
 	};
 
 	const [elements, setElements] = useState(
 		JSON.parse(localStorage.getItem('nodes')) || initialElements
 	);
-	const [settings, setSettings] = useState(initialSettings);
+	const [settings, setSettings] = useState(
+		JSON.parse(localStorage.getItem('settings')) || initialSettings
+	);
 	const [info, setInfo] = useState({});
 	const [edge, setEdge] = useState({});
 
@@ -85,11 +89,13 @@ const Flow = () => {
 	const [helpModal, setHelpModal] = useState(false);
 	const [exportModal, setExportModal] = useState(false);
 	const [importModal, setImportModal] = useState(false);
+	const [settingsModal, setSettingsModal] = useState(false);
 
 	const createNode = (ev, el, pos = 'bottom', type = 'default') => {
 		ev.preventDefault();
 
-		let y, x = 0;
+		let y,
+			x = 0;
 
 		if (el.position) {
 			y = el.position.y;
@@ -170,6 +176,8 @@ const Flow = () => {
 				setExportModal={setExportModal}
 				importModal={importModal}
 				setImportModal={setImportModal}
+				settingsModal={settingsModal}
+				setSettingsModal={setSettingsModal}
 			/>
 
 			<BottomLinks
@@ -188,6 +196,10 @@ const Flow = () => {
 				setExportModal={setExportModal}
 				importModal={importModal}
 				setImportModal={setImportModal}
+				settingsModal={settingsModal}
+				setSettingsModal={setSettingsModal}
+				settings={settings}
+				setSettings={setSettings}
 			/>
 
 			<NodeActions

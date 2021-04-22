@@ -7,8 +7,12 @@ const ActionBar = ({
 	setExportModal,
 	importModal,
 	setImportModal,
+	settingsModal,
+	setSettingsModal
 }) => {
-	const { themes: { theme, setTheme } } = useTheme();
+	const {
+		themes: { theme, setTheme },
+	} = useTheme();
 
 	const actions = [
 		{
@@ -27,7 +31,7 @@ const ActionBar = ({
 		{
 			label: 'View as grid',
 			icon: icons.settings,
-			callback: () => setExportModal(!exportModal),
+			callback: () => setSettingsModal(!settingsModal),
 		},
 	];
 
@@ -56,7 +60,19 @@ const ActionBar = ({
 				<div className='h-2-5r w-1 ui-2'></div>
 
 				<div className='p-0-25r flex flex-row align-c'>
-					{/* {altActions.map((e) => (
+					<button
+						className='j-button radius-90 minimal app icon-only'
+						onClick={() =>
+							setTheme(theme === 'dark' ? 'light' : 'dark')
+						}
+						aria-label={'Toggle theme'}
+					>
+						<i className='j-icon'>
+							{theme === 'dark' ? icons.sun : icons.moon}
+						</i>
+					</button>
+
+					{altActions.map((e) => (
 						<button
 							className='j-button radius-90 minimal app icon-only'
 							onClick={e.callback}
@@ -65,15 +81,7 @@ const ActionBar = ({
 						>
 							<i className='j-icon'>{e.icon}</i>
 						</button>
-					))} */}
-
-					<button
-						className='j-button radius-90 minimal app icon-only'
-						onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-						aria-label={'Toggle theme'}
-					>
-						<i className='j-icon'>{theme === 'dark' ? icons.sun : icons.moon}</i>
-					</button>
+					))}
 				</div>
 			</div>
 		</div>

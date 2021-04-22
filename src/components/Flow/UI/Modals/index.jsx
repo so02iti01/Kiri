@@ -2,6 +2,7 @@ import KeyboardModal from './KeyboardModal';
 import HelpModal from './HelpModal';
 import ExportModal from './ExportModal';
 import ImportModal from './ImportModal';
+import SettingsModal from './SettingsModal';
 
 const Modals = ({
 	elements,
@@ -14,6 +15,10 @@ const Modals = ({
 	setExportModal,
 	importModal,
 	setImportModal,
+	settingsModal,
+	setSettingsModal,
+	settings,
+	setSettings,
 }) => {
 	return (
 		<>
@@ -31,6 +36,12 @@ const Modals = ({
 				setElements={setElements}
 				importModal={importModal}
 				setImportModal={setImportModal}
+			/>
+			<SettingsModal
+				settings={settings}
+				setSettings={setSettings}
+				settingsModal={settingsModal}
+				setSettingsModal={setSettingsModal}
 			/>
 		</>
 	);

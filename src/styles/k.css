@@ -11,8 +11,11 @@ body {
 	outline: none;
 	color: var(--text-color);
 	background-color: var(--ui);
-	border-radius: 90px;
+	border-radius: 0.25rem;
 	padding: 0.15rem 0.5rem;
+	resize: vertical;
+	min-height: 1.65rem;
+	max-height: 30vh;
 	transition: var(--duration-fast-02) var(--expressive-standard);
 }
 .k-input:focus {

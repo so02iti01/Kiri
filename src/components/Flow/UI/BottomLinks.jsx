@@ -19,7 +19,7 @@ const BottomLinks = ({ setKeyboardModal, setHelpModal }) => {
 
 	return (
 		<div className='absolute bottom-16 left-0 right-0 w-100p px-1r flex flex-row align-c'>
-			<div className='w-100p flex-sb'>
+			<div className='w-100p flex flex-row align-c'>
 				<div className='flex flex-row align-c'>
 					{links.map((e) => (
 						<button
