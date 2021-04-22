@@ -11,7 +11,9 @@ const Keyboard = ({
 	exportModal,
 	setExportModal,
 	importModal,
-	setImportModal
+	setImportModal,
+	settingsModal,
+	setSettingsModal
 }) => {
 	const handleEnter = (e) => {
 		if (info) {
@@ -28,7 +30,7 @@ const Keyboard = ({
 	return (
 		<div>
 			<KeyboardEventHandler
-				handleKeys={['enter', 'tab', 'k', 'h', 'e', 'i', 'space']}
+				handleKeys={['enter', 'tab', 'k', 'h', 'e', 'i', 'space', 's']}
 				onKeyEvent={(key, e) => {
 					switch (key) {
 						case 'enter':
@@ -48,6 +50,9 @@ const Keyboard = ({
 							break;
 						case 'i':
 							setImportModal(!importModal);
+							break;
+						case 's':
+							setSettingsModal(!settingsModal);
 							break;
 						case 'space':
 							e.preventDefault();

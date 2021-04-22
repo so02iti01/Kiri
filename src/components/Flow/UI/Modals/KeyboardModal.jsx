@@ -11,6 +11,10 @@ const KeyboardModal = ({ keyboardModal, setKeyboardModal }) => {
 			description: 'Toggles help dialog',
 		},
 		{
+			key: 's',
+			description: 'Toggles setting dialog',
+		},
+		{
 			key: 'e',
 			description: 'Toggles export dialog',
 		},

@@ -158,6 +158,8 @@ const Flow = () => {
 				setNodeLabel={setNodeLabel}
 				importModal={importModal}
 				setImportModal={setImportModal}
+				settingsModal={settingsModal}
+				setSettingsModal={setSettingsModal}
 				setNodeType={setNodeType}
 				edge={edge}
 				setEdge={setEdge}
@@ -183,6 +185,7 @@ const Flow = () => {
 			<BottomLinks
 				setKeyboardModal={setKeyboardModal}
 				setHelpModal={setHelpModal}
+				settings={settings}
 			/>
 
 			<Modals

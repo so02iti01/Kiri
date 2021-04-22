@@ -30,6 +30,8 @@ const FlowPane = ({
 	setExportModal,
 	importModal,
 	setImportModal,
+	settingsModal,
+	setSettingsModal,
 	setNodeLabel,
 	setNodeType,
 	edge,
@@ -121,10 +123,12 @@ const FlowPane = ({
 					<Background
 						variant={settings.backgroundType}
 						color={
-							theme === 'dark'
+							settings.backgroundType === 'lines'
+								? theme === 'dark'
+									? '#444'
+									: '#ddd'
+								: theme === 'dark'
 								? '#777'
-								: settings.backgroundType === 'lines'
-								? '#ddd'
 								: '#000'
 						}
 						gap={16}
@@ -137,11 +141,11 @@ const FlowPane = ({
 						nodeColor={(node) => {
 							switch (node.type) {
 								case 'input':
-									return 'var(--blue-60)';
+									return 'var(--accent-60)';
 								case 'default':
 									return 'var(--ui-yinyang)';
 								case 'output':
-									return 'var(--magenta-60)';
+									return 'var(--green-40)';
 								default:
 									return '#eee';
 							}
@@ -163,6 +167,8 @@ const FlowPane = ({
 				setExportModal={setExportModal}
 				importModal={importModal}
 				setImportModal={setImportModal}
+				settingsModal={settingsModal}
+				setSettingsModal={setSettingsModal}
 			/>
 		</div>
 	);

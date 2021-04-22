@@ -33,8 +33,8 @@ const SettingsModal = ({ settings, setSettings, settingsModal, setSettingsModal 
 			<h5>Document</h5>
 			<div className='w-100p flex-sb'>
 				<span>Show background?</span>
-				<div class='flex flex-row align-c'>
-					<label class='j-switch'>
+				<div className='flex flex-row align-c'>
+					<label className='j-switch'>
 						<input
 							type='checkbox'
 							defaultChecked={background}
@@ -42,15 +42,15 @@ const SettingsModal = ({ settings, setSettings, settingsModal, setSettingsModal 
 								setBackground(!background)
 							}
 						/>
-						<span class='j-slider'></span>
+						<span className='j-slider'></span>
 					</label>
 				</div>
 			</div>
 			
 			<div className='w-100p flex-sb mt-0-5r'>
 				<span>Dotted background?</span>
-				<div class='flex flex-row align-c'>
-					<label class='j-switch'>
+				<div className='flex flex-row align-c'>
+					<label className='j-switch'>
 						<input
 							type='checkbox'
 							defaultChecked={backgroundType === 'dots' ? 'on' : 'off'}
@@ -58,15 +58,15 @@ const SettingsModal = ({ settings, setSettings, settingsModal, setSettingsModal 
 								setBackgroundType(backgroundType === 'dots' ? 'lines' : 'dots')
 							}
 						/>
-						<span class='j-slider'></span>
+						<span className='j-slider'></span>
 					</label>
 				</div>
 			</div>
 
 			<div className='w-100p flex-sb mt-0-5r'>
 				<span>Snap nodes to grid?</span>
-				<div class='flex flex-row align-c'>
-					<label class='j-switch'>
+				<div className='flex flex-row align-c'>
+					<label className='j-switch'>
 						<input
 							type='checkbox'
 							defaultChecked={snapToGrid}
@@ -74,15 +74,15 @@ const SettingsModal = ({ settings, setSettings, settingsModal, setSettingsModal 
 								setSnapToGrid(!snapToGrid)
 							}
 						/>
-						<span class='j-slider'></span>
+						<span className='j-slider'></span>
 					</label>
 				</div>
 			</div>
 
 			<div className='w-100p flex-sb mt-0-5r'>
 				<span>Show MiniMap?</span>
-				<div class='flex flex-row align-c'>
-					<label class='j-switch'>
+				<div className='flex flex-row align-c'>
+					<label className='j-switch'>
 						<input
 							type='checkbox'
 							defaultChecked={miniMap}
@@ -90,7 +90,7 @@ const SettingsModal = ({ settings, setSettings, settingsModal, setSettingsModal 
 								setMiniMap(!miniMap)
 							}
 						/>
-						<span class='j-slider'></span>
+						<span className='j-slider'></span>
 					</label>
 				</div>
 			</div>

@@ -1,4 +1,4 @@
-const BottomLinks = ({ setKeyboardModal, setHelpModal }) => {
+const BottomLinks = ({ setKeyboardModal, setHelpModal, settings }) => {
 	const links = [
 		{
 			label: 'Keyboard shortcuts (K)',
@@ -19,7 +19,7 @@ const BottomLinks = ({ setKeyboardModal, setHelpModal }) => {
 
 	return (
 		<div className='absolute bottom-16 left-0 right-0 w-100p px-1r flex flex-row align-c'>
-			<div className='w-100p flex flex-row align-c'>
+			<div className={`w-100p ${settings.miniMap ? 'flex flex-row align-c' : 'flex-sb'}`}>
 				<div className='flex flex-row align-c'>
 					{links.map((e) => (
 						<button

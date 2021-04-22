@@ -12,9 +12,9 @@ const HelpModal = ({ helpModal, setHelpModal }) => {
 			<p>You can create nodes by using the three colored circles in the right-middle of the screen or by using the designated keyboard shortcuts.</p>
 
 			<div className="j-divider"></div>
-			<p><span className="fw-600 text-blue-70">Input nodes</span> are essentially starting points for your diagram. They can be used to separate a single are of a map from another. They can only have children but cannot be children themselves.</p>
+			<p><span className="fw-600 text-accent">Input nodes</span> are essentially starting points for your diagram. They can be used to separate a single are of a map from another. They can only have children but cannot be children themselves.</p>
 			<p><span className="fw-600 text-gray-100">Default nodes</span> are the most basic. They can both have children and be children themselves.</p>
-			<p><span className="fw-600 text-magenta-60">Output nodes</span> typically denote the ending or conclusion of a diagram. They can only be children, they cannot have children themselves.</p>
+			<p><span className="fw-600 text-green-40">Output nodes</span> typically denote the ending or conclusion of a diagram. They can only be children, they cannot have children themselves.</p>
 			<div className="j-divider"></div>
 
 			<h5>Connectors</h5>

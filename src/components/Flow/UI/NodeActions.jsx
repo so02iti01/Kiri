@@ -40,7 +40,7 @@ const NodeActions = ({ view, elements, setElements, info, createNode, createConn
 					<div className='flex-c p-0-25r'>
 						{actions.map((e) => (
 							<button
-								className='j-button minimal app icon-only radius-90'
+								className='j-button no-push minimal app icon-only radius-90'
 								onClick={e.callback}
 								key={e.label}
 								aria-label={e.label}
@@ -56,7 +56,7 @@ const NodeActions = ({ view, elements, setElements, info, createNode, createConn
 					<div className='flex-c p-0-25r'>
 						{nodeActions.map((e) => (
 							<button
-								className={`j-button minimal app icon-only radius-90 ${e.className || ''}`}
+								className={`j-button no-push minimal app icon-only radius-90 ${e.className || ''}`}
 								onClick={e.callback}
 								key={e.label}
 								aria-label={e.label}

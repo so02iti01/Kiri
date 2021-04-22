@@ -47,7 +47,7 @@ const ActionBar = ({
 				<div className='p-0-25r flex flex-row align-c'>
 					{actions.map((e) => (
 						<button
-							className='j-button radius-90 minimal app icon-only'
+							className='j-button no-push radius-90 minimal app icon-only'
 							onClick={e.callback}
 							key={e.label}
 							aria-label={e.label}
@@ -61,7 +61,7 @@ const ActionBar = ({
 
 				<div className='p-0-25r flex flex-row align-c'>
 					<button
-						className='j-button radius-90 minimal app icon-only'
+						className='j-button no-push radius-90 minimal app icon-only'
 						onClick={() =>
 							setTheme(theme === 'dark' ? 'light' : 'dark')
 						}
@@ -74,7 +74,7 @@ const ActionBar = ({
 
 					{altActions.map((e) => (
 						<button
-							className='j-button radius-90 minimal app icon-only'
+							className='j-button no-push radius-90 minimal app icon-only'
 							onClick={e.callback}
 							key={e.label}
 							aria-label={e.label}

@@ -17,8 +17,8 @@ const ImportModal = ({ setElements, importModal, setImportModal }) => {
 				className='j-input'
 				placeholder={'[ paste your nodes here ]'}
 				onChange={(e) => setImportData(e.target.value)}
+				value={importData}
 			>
-				{importData}
 			</textarea>
 
 			<div className='w-100p flex flex-row align-c justify-e'>

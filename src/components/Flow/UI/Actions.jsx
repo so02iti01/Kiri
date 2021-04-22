@@ -7,7 +7,7 @@ const Actions = ({ info, createNode, setElements, getId }) => {
 		<div className='h-100p absolute top-0 right-16 flex-c'>
 			<div className='backdrop-blur-5 border-ui-2 flex-c radius-90 p-0-25r'>
 				<button
-					className='j-button app bg-blue-70 h-1-75r w-1-75r shadow-md radius-90 icon-only'
+					className='j-button app bg-accent h-1-75r w-1-75r shadow-md radius-90 icon-only'
 					onClick={(ev) => createNodeByType(ev, 'input')}
 					title={'Input node'}
 				></button>
@@ -17,7 +17,7 @@ const Actions = ({ info, createNode, setElements, getId }) => {
 					title={'Default node'}
 				></button>
 				<button
-					className='j-button app bg-magenta-60 h-1-75r w-1-75r shadow-md radius-90 icon-only'
+					className='j-button app bg-green-40 h-1-75r w-1-75r shadow-md radius-90 icon-only'
 					onClick={(ev) => createNodeByType(ev, 'output')}
 					title={'Output node'}
 				></button>

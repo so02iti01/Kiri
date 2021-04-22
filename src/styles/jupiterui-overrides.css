@@ -1,0 +1,25 @@
+:root {
+	--accent: var(--purple-60);
+
+	--accent-10: var(--purple-10);
+	--accent-20: var(--purple-20);
+	--accent-30: var(--purple-30);
+	--accent-40: var(--purple-40);
+	--accent-50: var(--purple-50);
+	--accent-60: var(--purple-60);
+	--accent-70: var(--purple-70);
+	--accent-80: var(--purple-80);
+	--accent-90: var(--purple-90);
+	--accent-100: var(--purple-100);
+}
+
+.j-button.minimal:hover {
+	color: white !important;
+	background-color: var(--accent) !important;
+}
+.j-button.minimal > i {
+	transition: var(--duration-fast-02) var(--expressive-standard);
+}
+.j-button.minimal:active > i {
+	transform: scale(0.9);
+}
