@@ -1,13 +1,14 @@
 # Kiri
 
-> Painless mind-maps and diagrams
-
-Beta warning: This is still a work in progress. If you intend to add data to Kiri that you do not wish to lose, take occasional screenshots or save the value of `nodes` in `localStorage`
+> Effortless mind-maps and diagrams for those who care about privacy.
 
 ## Features
 
 - Easy-to-use interface for both mind-maps and diagrams of many types
 - Every thing is done locally and saved in `localStorage` (AKA there's no back-end)
+- Three line types for connecting nodes: curved, straight, and step
+- Add labels to connector lines
+- Pre-defined system of Input, Default, and Output nodes
 
 ## Credits
 
