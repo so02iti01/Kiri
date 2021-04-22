@@ -2,6 +2,8 @@
 
 > Effortless mind-maps and diagrams for those who care about privacy.
 
+![Kiri](https://codeberg.org/athena/Kiri/raw/branch/main/public/kiri.png)
+
 ## Features
 
 - Easy-to-use interface for both mind-maps and diagrams of many types
