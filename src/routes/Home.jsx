@@ -1,4 +1,4 @@
-import Flow from "../components/Flow";
+import Flow from "../Flow";
 
 const Home = () => {
 	return (
