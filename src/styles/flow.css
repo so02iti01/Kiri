@@ -3,7 +3,7 @@
 	border: 1px dotted rgba(0, 89, 220, 0.8);
 }
 .react-flow__edge.selected .react-flow__edge-path {
-	stroke: var(--ui-4);
+	stroke: var(--ui-7);
 }
 .react-flow__edge.animated path {
 	stroke-dasharray: 5;
@@ -70,14 +70,14 @@
 }
 .react-flow__node-output {
 	background: var(--ui);
-	border-color: var(--green-40);
+	border-color: var(--magenta-50);
 }
 .react-flow__node-output.selected,
 .react-flow__node-output.selected:hover {
-	box-shadow: 0 0 0 0.5px var(--green-40);
+	box-shadow: 0 0 0 0.5px var(--magenta-50);
 }
 .react-flow__node-output .react-flow__handle {
-	background: var(--green-40);
+	background: var(--magenta-50);
 }
 .react-flow__nodesselection-rect {
 	background: var(--text-color-015);
@@ -87,7 +87,7 @@
 	position: absolute;
 	width: 6px;
 	height: 6px;
-	background: #555;
+	background: var(--red-60);
 	border: 1px solid var(--ui);
 	border-radius: 100%;
 }
@@ -119,4 +119,9 @@
 }
 .react-flow__controls-button:hover {
 	background: #f4f4f4;
+}
+
+
+text {
+	fill: var(--text-color) !important;
 }

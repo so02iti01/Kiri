@@ -154,6 +154,55 @@ const icons = {
 			/>
 		</svg>
 	),
+	lines: {
+		step: (
+			<svg
+				xmlns='http://www.w3.org/2000/svg'
+				width='24'
+				height='24'
+				viewBox='0 0 24 24'
+				fill='none'
+				stroke='currentColor'
+				strokeWidth='2'
+				strokeLinecap='round'
+				strokeLinejoin='round'
+			>
+				<path d='M20.2 17.2l-7.7-7.7-4 4-5.7-5.7' />
+				<path d='M15 18h6v-6' />
+			</svg>
+		),
+		curved: (
+			<svg
+				xmlns='http://www.w3.org/2000/svg'
+				width='24'
+				height='24'
+				viewBox='0 0 24 24'
+				fill='none'
+				stroke='currentColor'
+				strokeWidth='2'
+				strokeLinecap='round'
+				strokeLinejoin='round'
+			>
+				<path d='M9 14l6 6 6-6' />
+				<path d='M4 4h7a4 4 0 0 1 4 4v11' />
+			</svg>
+		),
+		straight: (
+			<svg
+				xmlns='http://www.w3.org/2000/svg'
+				width='24'
+				height='24'
+				viewBox='0 0 24 24'
+				fill='none'
+				stroke='currentColor'
+				strokeWidth='2'
+				strokeLinecap='round'
+				strokeLinejoin='round'
+			>
+				<path d='M12 5v13M5 12l7 7 7-7' />
+			</svg>
+		),
+	},
 };
 
 export { icons };

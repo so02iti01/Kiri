@@ -14,7 +14,7 @@ const HelpModal = ({ helpModal, setHelpModal }) => {
 			<div className="j-divider"></div>
 			<p><span className="fw-600 text-accent">Input nodes</span> are essentially starting points for your diagram. They can be used to separate a single are of a map from another. They can only have children but cannot be children themselves.</p>
 			<p><span className="fw-600 text-gray-100">Default nodes</span> are the most basic. They can both have children and be children themselves.</p>
-			<p><span className="fw-600 text-green-40">Output nodes</span> typically denote the ending or conclusion of a diagram. They can only be children, they cannot have children themselves.</p>
+			<p><span className="fw-600 text-magenta-50">Output nodes</span> typically denote the ending or conclusion of a diagram. They can only be children, they cannot have children themselves.</p>
 			<div className="j-divider"></div>
 
 			<h5>Connectors</h5>

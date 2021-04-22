@@ -17,7 +17,7 @@ const Actions = ({ info, createNode, setElements, getId }) => {
 					title={'Default node'}
 				></button>
 				<button
-					className='j-button app bg-green-40 h-1-75r w-1-75r shadow-md radius-90 icon-only'
+					className='j-button app bg-magenta-50 h-1-75r w-1-75r shadow-md radius-90 icon-only'
 					onClick={(ev) => createNodeByType(ev, 'output')}
 					title={'Output node'}
 				></button>

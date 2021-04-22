@@ -1,7 +1,15 @@
 import NodePane from './NodePane';
 import EdgePane from './EdgePane';
 
-const EditPanes = ({ view, info, nodeLabel, setNodeLabel }) => {
+const EditPanes = ({
+	currentItem,
+	view,
+	info,
+	nodeLabel,
+	setNodeLabel,
+	edgeLabel,
+	setEdgeLabel
+}) => {
 	return view === 'node' ? (
 		<NodePane
 			info={info}
@@ -9,7 +17,12 @@ const EditPanes = ({ view, info, nodeLabel, setNodeLabel }) => {
 			setNodeLabel={setNodeLabel}
 		/>
 	) : (
-		<EdgePane info={info} />
+		<EdgePane
+			currentItem={currentItem}
+			info={info}
+			edgeLabel={edgeLabel}
+			setEdgeLabel={setEdgeLabel}
+		/>
 	);
 };
 

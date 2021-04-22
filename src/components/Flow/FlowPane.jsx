@@ -36,6 +36,8 @@ const FlowPane = ({
 	setNodeType,
 	edge,
 	setEdge,
+	currentItem,
+	setCurrentItem
 }) => {
 	const {
 		themes: { theme },
@@ -88,6 +90,8 @@ const FlowPane = ({
 			setEdge({});
 			setInfo(e);
 		}
+
+		setCurrentItem(e);
 	};
 
 	const setCurrentNode = (el) => {
@@ -145,7 +149,7 @@ const FlowPane = ({
 								case 'default':
 									return 'var(--ui-yinyang)';
 								case 'output':
-									return 'var(--green-40)';
+									return 'var(--magenta-50)';
 								default:
 									return '#eee';
 							}
