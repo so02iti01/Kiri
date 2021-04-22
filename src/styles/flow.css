@@ -29,6 +29,8 @@
 .react-flow__node {
 	cursor: grab;
 }
+
+/* NODES */
 .react-flow__node-default,
 .react-flow__node-input,
 .react-flow__node-output {
@@ -47,8 +49,11 @@
 	box-shadow: 0 1px 4px 1px rgba(0, 0, 0, 0.08);
 }
 .react-flow__node-input {
-	background: var(--ui);
+	background: var(--accent-10);
 	border-color: var(--accent-60);
+}
+body.dark .react-flow__node-input {
+	background: var(--accent-100);
 }
 .react-flow__node-input.selected,
 .react-flow__node-input.selected:hover {
@@ -69,8 +74,11 @@
 	background: var(--ui-yinyang);
 }
 .react-flow__node-output {
-	background: var(--ui);
-	border-color: var(--magenta-50);
+	background: var(--magenta-10);
+	border-color: var(--magenta-60);
+}
+body.dark .react-flow__node-output {
+	background: var(--magenta-100);
 }
 .react-flow__node-output.selected,
 .react-flow__node-output.selected:hover {
@@ -79,14 +87,96 @@
 .react-flow__node-output .react-flow__handle {
 	background: var(--magenta-50);
 }
+
+
+.react-flow__node-default.green {
+	background: var(--green-10) !important;
+	border-color: var(--green-60) !important;
+}
+body.dark .react-flow__node-default.green  {
+	background: var(--green-100) !important;
+}
+.react-flow__node-default.green.selected,
+.react-flow__node-default.green.selected:hover {
+	box-shadow: 0 0 0 0.5px var(--green-50) !important;
+}
+.react-flow__node-default.green  .react-flow__handle {
+	background: var(--green-50) !important;
+}
+
+.react-flow__node-default.gray {
+	background: var(--gray-10) !important;
+	border-color: var(--gray-60) !important;
+}
+body.dark .react-flow__node-default.gray  {
+	background: var(--gray-100) !important;
+}
+.react-flow__node-default.gray.selected,
+.react-flow__node-default.gray.selected:hover {
+	box-shadow: 0 0 0 0.5px var(--gray-50) !important;
+}
+.react-flow__node-default.gray  .react-flow__handle {
+	background: var(--gray-50) !important;
+}
+
+
+.react-flow__node-default.blue {
+	background: var(--blue-10) !important;
+	border-color: var(--blue-60) !important;
+}
+body.dark .react-flow__node-default.blue  {
+	background: var(--blue-100) !important;
+}
+.react-flow__node-default.blue.selected,
+.react-flow__node-default.blue.selected:hover {
+	box-shadow: 0 0 0 0.5px var(--blue-50) !important;
+}
+.react-flow__node-default.blue  .react-flow__handle {
+	background: var(--blue-50) !important;
+}
+
+
+.react-flow__node-default.cyan {
+	background: var(--cyan-10) !important;
+	border-color: var(--cyan-40) !important;
+}
+body.dark .react-flow__node-default.cyan  {
+	background: var(--cyan-100) !important;
+}
+.react-flow__node-default.cyan.selected,
+.react-flow__node-default.cyan.selected:hover {
+	box-shadow: 0 0 0 0.5px var(--cyan-50) !important;
+}
+.react-flow__node-default.cyan  .react-flow__handle {
+	background: var(--cyan-50) !important;
+}
+
+.react-flow__node-default.teal {
+	background: var(--teal-10) !important;
+	border-color: var(--teal-40) !important;
+}
+body.dark .react-flow__node-default.teal  {
+	background: var(--teal-100) !important;
+}
+.react-flow__node-default.teal.selected,
+.react-flow__node-default.teal.selected:hover {
+	box-shadow: 0 0 0 0.5px var(--teal-50) !important;
+}
+.react-flow__node-default.teal  .react-flow__handle {
+	background: var(--teal-50) !important;
+}
+
+
+
+
 .react-flow__nodesselection-rect {
 	background: var(--text-color-015);
 	border: 1px dotted rgba(0, 89, 220, 0.8);
 }
 .react-flow__handle {
 	position: absolute;
-	width: 6px;
-	height: 6px;
+	width: 7px;
+	height: 7px;
 	background: var(--red-60);
 	border: 1px solid var(--ui);
 	border-radius: 100%;

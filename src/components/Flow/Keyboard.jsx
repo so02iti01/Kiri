@@ -1,7 +1,7 @@
 import KeyboardEventHandler from 'react-keyboard-event-handler';
 
 const Keyboard = ({
-	info,
+	currentItem,
 	createNode,
 	createConnectedNode,
 	keyboardModal,
@@ -16,14 +16,14 @@ const Keyboard = ({
 	setSettingsModal
 }) => {
 	const handleEnter = (e) => {
-		if (info) {
-			createNode(e, info, 'right');
+		if (currentItem) {
+			createNode(e, currentItem, 'right');
 		}
 	};
 
 	const handleTab = (e) => {
-		if (info) {
-			createConnectedNode(e, info);
+		if (currentItem) {
+			createConnectedNode(e, currentItem);
 		}
 	};
 

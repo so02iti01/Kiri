@@ -4,7 +4,6 @@ import ReactFlow, {
 	Background,
 	removeElements,
 	addEdge,
-	isEdge,
 	isNode,
 	MiniMap,
 } from 'react-flow-renderer/nocss';
@@ -16,11 +15,7 @@ const FlowPane = ({
 	elements,
 	setElements,
 	createNode,
-	createEdge,
 	createConnectedNode,
-	info,
-	setInfo,
-	getId,
 	settings,
 	keyboardModal,
 	setKeyboardModal,
@@ -34,10 +29,8 @@ const FlowPane = ({
 	setSettingsModal,
 	setNodeLabel,
 	setNodeType,
-	edge,
-	setEdge,
 	currentItem,
-	setCurrentItem
+	setCurrentItem,
 }) => {
 	const {
 		themes: { theme },
@@ -45,6 +38,16 @@ const FlowPane = ({
 
 	// Events
 	const onElementsRemove = (elementsToRemove) => {
+		if (elementsToRemove.length === elements.length) {
+			setElements([{
+				id: '1',
+				type: 'input',
+				data: { label: 'Central topic' },
+				position: { x: 0, y: 0 },
+			}]);
+			return;
+		}
+
 		setElements((els) => removeElements(elementsToRemove, els));
 	};
 
@@ -52,20 +55,15 @@ const FlowPane = ({
 		setElements((els) => addEdge(params, els));
 	};
 
-	const onNodeDragStop = (ev, node) => {
-		const newList = elements.map((item) => {
-			if (item.id === node.id) {
-				const updatedItem = {
-					...node,
-				};
+	const setCurrentNode = (el) => {
+		setNodeLabel(el?.data?.label);
 
-				return updatedItem;
-			}
+		let n = {
+			...elements.filter((e) => e.id === el.id)[0],
+			position: el.position,
+		};
 
-			return item;
-		});
-
-		setElements(newList);
+		setCurrentItem(n);
 	};
 
 	const onNodeDoubleClick = () => {
@@ -78,25 +76,14 @@ const FlowPane = ({
 	};
 
 	const onSelectionChange = (els) => {
-		const e = els && els.length > 0 ? els[0] : {};
+		const el = els && els.length > 0 ? els[0] : {};
+		setNodeType(isNode(el) ? 'node' : 'edge');
 
-		if (isEdge(e)) {
-			setNodeType('edge');
-			setEdge(e);
-		}
+		let n = {
+			...elements.filter((e) => e.id === el.id)[0],
+		};
 
-		if (isNode(e)) {
-			setNodeType('node');
-			setEdge({});
-			setInfo(e);
-		}
-
-		setCurrentItem(e);
-	};
-
-	const setCurrentNode = (el) => {
-		setInfo(el);
-		setNodeLabel(el?.data?.label);
+		setCurrentItem(n);
 	};
 
 	// Data modifications
@@ -107,18 +94,13 @@ const FlowPane = ({
 				elements={elements}
 				onElementsRemove={onElementsRemove}
 				onElementClick={(ev, el) => setCurrentNode(el)}
-				onNodeDrag={(ev, el) => setCurrentNode(el)}
+				onNodeDragStop={(ev, el) => setCurrentNode(el)}
 				onSelectionChange={onSelectionChange}
-				onEdgeContextMenu={(ev, el) => {
-					ev.preventDefault();
-				}}
 				onConnect={onConnect}
 				deleteKeyCode={46}
-				connectionMode={'loose'}
 				onNodeDoubleClick={onNodeDoubleClick}
 				panOnScroll
 				zoomOnScroll={false}
-				onNodeDragStop={onNodeDragStop}
 				snapToGrid={settings.snapToGrid}
 				snapGrid={[16, 16]}
 				onLoad={onLoad}
@@ -160,7 +142,7 @@ const FlowPane = ({
 			</ReactFlow>
 
 			<Keyboard
-				info={info}
+				currentItem={currentItem}
 				createNode={createNode}
 				createConnectedNode={createConnectedNode}
 				keyboardModal={keyboardModal}

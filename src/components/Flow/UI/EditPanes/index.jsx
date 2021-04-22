@@ -4,7 +4,6 @@ import EdgePane from './EdgePane';
 const EditPanes = ({
 	currentItem,
 	view,
-	info,
 	nodeLabel,
 	setNodeLabel,
 	edgeLabel,
@@ -12,14 +11,13 @@ const EditPanes = ({
 }) => {
 	return view === 'node' ? (
 		<NodePane
-			info={info}
+			currentItem={currentItem}
 			nodeLabel={nodeLabel}
 			setNodeLabel={setNodeLabel}
 		/>
 	) : (
 		<EdgePane
 			currentItem={currentItem}
-			info={info}
 			edgeLabel={edgeLabel}
 			setEdgeLabel={setEdgeLabel}
 		/>

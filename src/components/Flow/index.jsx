@@ -33,13 +33,7 @@ const Flow = () => {
 	const [settings, setSettings] = useState(
 		JSON.parse(localStorage.getItem('settings')) || initialSettings
 	);
-	const [info, setInfo] = useState({});
-	const [edge, setEdge] = useState({});
 	const [currentItem, setCurrentItem] = useState({});
-
-	useEffect(() => {
-		localStorage.setItem('nodes', JSON.stringify(elements));
-	}, [elements]);
 
 	useEffect(() => {
 		localStorage.setItem('settings', JSON.stringify(settings));
@@ -54,7 +48,7 @@ const Flow = () => {
 	useEffect(() => {
 		setElements((els) =>
 			els.map((el) => {
-				if (el.id === info?.id) {
+				if (el.id === currentItem?.id) {
 					el.data = {
 						...el.data,
 						label: nodeLabel,
@@ -77,6 +71,34 @@ const Flow = () => {
 			})
 		);
 	}, [edgeLabel]);
+
+	useEffect(() => {
+		setElements((els) =>
+			els.map((el) => {
+				if (el.id === currentItem?.id) {
+					el = {
+						...currentItem,
+					};
+				}
+
+				return el;
+			})
+		);
+	}, [currentItem]);
+
+	useEffect(() => {
+		localStorage.setItem('nodes', JSON.stringify(elements));
+
+		if (elements.length === 0) {
+			setElements([{
+				id: '1',
+				type: 'input',
+				data: { label: 'Central topic' },
+				position: { x: 0, y: 0 },
+			}]);
+			return;
+		}
+	}, [elements]);
 
 	// Modals
 	const [keyboardModal, setKeyboardModal] = useState(false);
@@ -116,14 +138,16 @@ const Flow = () => {
 	};
 
 	const createEdge = (parent, node) => {
-		setElements((e) =>
-			e.concat({
-				id: getId(),
-				source: parent?.id.toString(),
-				target: node,
-				animated: false,
-			})
-		);
+		if (parent?.id) {
+			setElements((e) =>
+				e.concat({
+					id: getId(),
+					source: parent?.id.toString(),
+					target: node,
+					animated: false,
+				})
+			);
+		}
 	};
 
 	const createConnectedNode = (ev, parent) => {
@@ -131,7 +155,7 @@ const Flow = () => {
 		createEdge(parent, node);
 	};
 
-	const modifyEdge = (e, k, v) => {
+	const modifyNode = (e, k, v) => {
 		setElements((els) =>
 			els.map((el) => {
 				if (el.id === e?.id) {
@@ -145,98 +169,88 @@ const Flow = () => {
 
 	return (
 		<>
-			{elements && (
-				<>
-					<FlowPane
-						elements={elements}
-						setElements={setElements}
-						createNode={createNode}
-						createEdge={createEdge}
-						createConnectedNode={createConnectedNode}
-						info={info}
-						setInfo={setInfo}
-						getId={getId}
-						settings={settings}
-						keyboardModal={keyboardModal}
-						setKeyboardModal={setKeyboardModal}
-						helpModal={helpModal}
-						setHelpModal={setHelpModal}
-						exportModal={exportModal}
-						setExportModal={setExportModal}
-						setNodeLabel={setNodeLabel}
-						importModal={importModal}
-						setImportModal={setImportModal}
-						settingsModal={settingsModal}
-						setSettingsModal={setSettingsModal}
-						setNodeType={setNodeType}
-						edge={edge}
-						setEdge={setEdge}
-						currentItem={currentItem}
-						setCurrentItem={setCurrentItem}
-					/>
+			<FlowPane
+				elements={elements}
+				setElements={setElements}
+				createNode={createNode}
+				createEdge={createEdge}
+				createConnectedNode={createConnectedNode}
+				settings={settings}
+				keyboardModal={keyboardModal}
+				setKeyboardModal={setKeyboardModal}
+				helpModal={helpModal}
+				setHelpModal={setHelpModal}
+				exportModal={exportModal}
+				setExportModal={setExportModal}
+				setNodeLabel={setNodeLabel}
+				importModal={importModal}
+				setImportModal={setImportModal}
+				settingsModal={settingsModal}
+				setSettingsModal={setSettingsModal}
+				setNodeType={setNodeType}
+				currentItem={currentItem}
+				setCurrentItem={setCurrentItem}
+			/>
 
-					<Actions
-						info={info}
-						elements={elements}
-						setElements={setElements}
-						getId={getId}
-						createNode={createNode}
-					/>
+			<Actions
+				currentItem={currentItem}
+				elements={elements}
+				setElements={setElements}
+				getId={getId}
+				createNode={createNode}
+			/>
 
-					<ActionBar
-						exportModal={exportModal}
-						setExportModal={setExportModal}
-						importModal={importModal}
-						setImportModal={setImportModal}
-						settingsModal={settingsModal}
-						setSettingsModal={setSettingsModal}
-					/>
+			<ActionBar
+				exportModal={exportModal}
+				setExportModal={setExportModal}
+				importModal={importModal}
+				setImportModal={setImportModal}
+				settingsModal={settingsModal}
+				setSettingsModal={setSettingsModal}
+			/>
 
-					<BottomLinks
-						setKeyboardModal={setKeyboardModal}
-						setHelpModal={setHelpModal}
-						settings={settings}
-					/>
+			<BottomLinks
+				setKeyboardModal={setKeyboardModal}
+				setHelpModal={setHelpModal}
+				settings={settings}
+			/>
 
-					<Modals
-						elements={elements}
-						setElements={setElements}
-						keyboardModal={keyboardModal}
-						setKeyboardModal={setKeyboardModal}
-						helpModal={helpModal}
-						setHelpModal={setHelpModal}
-						exportModal={exportModal}
-						setExportModal={setExportModal}
-						importModal={importModal}
-						setImportModal={setImportModal}
-						settingsModal={settingsModal}
-						setSettingsModal={setSettingsModal}
-						settings={settings}
-						setSettings={setSettings}
-					/>
+			<Modals
+				elements={elements}
+				setElements={setElements}
+				keyboardModal={keyboardModal}
+				setKeyboardModal={setKeyboardModal}
+				helpModal={helpModal}
+				setHelpModal={setHelpModal}
+				exportModal={exportModal}
+				setExportModal={setExportModal}
+				importModal={importModal}
+				setImportModal={setImportModal}
+				settingsModal={settingsModal}
+				setSettingsModal={setSettingsModal}
+				settings={settings}
+				setSettings={setSettings}
+			/>
 
-					<NodeActions
-						view={nodeType}
-						elements={elements}
-						setElements={setElements}
-						info={info}
-						createNode={createNode}
-						createConnectedNode={createConnectedNode}
-						currentItem={currentItem}
-						modifyEdge={modifyEdge}
-					/>
+			<NodeActions
+				view={nodeType}
+				elements={elements}
+				setElements={setElements}
+				createNode={createNode}
+				createConnectedNode={createConnectedNode}
+				currentItem={currentItem}
+				setCurrentItem={setCurrentItem}
+				modifyNode={modifyNode}
+			/>
 
-					<EditPanes
-						view={nodeType}
-						info={info}
-						nodeLabel={nodeLabel}
-						setNodeLabel={setNodeLabel}
-						currentItem={currentItem}
-						edgeLabel={edgeLabel}
-						setEdgeLabel={setEdgeLabel}
-					/>
-				</>
-			)}
+			<EditPanes
+				view={nodeType}
+				nodeLabel={nodeLabel}
+				setNodeLabel={setNodeLabel}
+				currentItem={currentItem}
+				edgeLabel={edgeLabel}
+				setEdgeLabel={setEdgeLabel}
+			/>
 		</>
 	);
 };

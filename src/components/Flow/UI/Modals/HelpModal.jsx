@@ -9,7 +9,7 @@ const HelpModal = ({ helpModal, setHelpModal }) => {
 			<h5>Fundamentals</h5>
 			<p>Kiri's system uses blocks called <i>nodes.</i> These simply contain a label. You can double-click on a node to highlight the edit box (found in the top-right).</p>
 			<p>As of now, Kiri uses three distinct type of nodes: input, default, and output.</p>
-			<p>You can create nodes by using the three colored circles in the right-middle of the screen or by using the designated keyboard shortcuts.</p>
+			<p>You can create nodes by using the three colored buttons in the right-middle of the screen or by using the designated keyboard shortcuts.</p>
 
 			<div className="j-divider"></div>
 			<p><span className="fw-600 text-accent">Input nodes</span> are essentially starting points for your diagram. They can be used to separate a single are of a map from another. They can only have children but cannot be children themselves.</p>

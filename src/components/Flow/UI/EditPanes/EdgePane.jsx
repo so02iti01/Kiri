@@ -1,7 +1,7 @@
-const EdgePane = ({ currentItem, info, edgeLabel, setEdgeLabel }) => {
+const EdgePane = ({ currentItem, edgeLabel, setEdgeLabel }) => {
 	return (
 		<div className='absolute top-16 right-16 mnw-10r'>
-			{info && (
+			{currentItem && (
 				<div className='flex-c w-100p'>
 					<div className='w-100p'>
 						<textarea
