@@ -6,6 +6,7 @@ import ReactFlow, {
 	addEdge,
 	isNode,
 	MiniMap,
+	updateEdge
 } from 'react-flow-renderer/nocss';
 import 'react-flow-renderer/dist/style.css';
 
@@ -86,6 +87,9 @@ const FlowPane = ({
 		setCurrentItem(n);
 	};
 
+	const onEdgeUpdate = (oldEdge, newConnection) =>
+    setElements((els) => updateEdge(oldEdge, newConnection, els));
+
 	// Data modifications
 
 	return (
@@ -104,6 +108,7 @@ const FlowPane = ({
 				snapToGrid={settings.snapToGrid}
 				snapGrid={[16, 16]}
 				onLoad={onLoad}
+				onEdgeUpdate={onEdgeUpdate}
 			>
 				{settings.background && (
 					<Background

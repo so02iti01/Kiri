@@ -10,7 +10,7 @@
 	animation: dashdraw 0.5s linear infinite;
 }
 .react-flow__edge.updating .react-flow__edge-path {
-	stroke: var(--red-60);
+	stroke: var(--ui-7);
 }
 .react-flow__edge-path {
 	stroke: var(--ui-4);
@@ -177,7 +177,7 @@ body.dark .react-flow__node-default.teal  {
 	position: absolute;
 	width: 7px;
 	height: 7px;
-	background: var(--red-60);
+	background: var(--accent);
 	border: 1px solid var(--ui);
 	border-radius: 100%;
 }
