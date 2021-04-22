@@ -51,6 +51,7 @@
 .react-flow__node-input {
 	background: var(--accent-10);
 	border-color: var(--accent-60);
+	color: var(--accent) !important;
 }
 body.dark .react-flow__node-input {
 	background: var(--accent-100);
@@ -76,6 +77,7 @@ body.dark .react-flow__node-input {
 .react-flow__node-output {
 	background: var(--magenta-10);
 	border-color: var(--magenta-60);
+	color: var(--magenta-60) !important;
 }
 body.dark .react-flow__node-output {
 	background: var(--magenta-100);
@@ -92,6 +94,7 @@ body.dark .react-flow__node-output {
 .react-flow__node-default.green {
 	background: var(--green-10) !important;
 	border-color: var(--green-60) !important;
+	color: var(--green-50) !important;
 }
 body.dark .react-flow__node-default.green  {
 	background: var(--green-100) !important;
@@ -123,6 +126,7 @@ body.dark .react-flow__node-default.gray  {
 .react-flow__node-default.blue {
 	background: var(--blue-10) !important;
 	border-color: var(--blue-60) !important;
+	color: var(--blue-60) !important;
 }
 body.dark .react-flow__node-default.blue  {
 	background: var(--blue-100) !important;
@@ -139,6 +143,7 @@ body.dark .react-flow__node-default.blue  {
 .react-flow__node-default.cyan {
 	background: var(--cyan-10) !important;
 	border-color: var(--cyan-40) !important;
+	color: var(--cyan-60) !important;
 }
 body.dark .react-flow__node-default.cyan  {
 	background: var(--cyan-100) !important;
@@ -154,6 +159,7 @@ body.dark .react-flow__node-default.cyan  {
 .react-flow__node-default.teal {
 	background: var(--teal-10) !important;
 	border-color: var(--teal-40) !important;
+	color: var(--teal-60) !important;
 }
 body.dark .react-flow__node-default.teal  {
 	background: var(--teal-100) !important;

@@ -9,19 +9,23 @@ const EditPanes = ({
 	edgeLabel,
 	setEdgeLabel
 }) => {
-	return view === 'node' ? (
-		<NodePane
-			currentItem={currentItem}
-			nodeLabel={nodeLabel}
-			setNodeLabel={setNodeLabel}
-		/>
-	) : (
-		<EdgePane
-			currentItem={currentItem}
-			edgeLabel={edgeLabel}
-			setEdgeLabel={setEdgeLabel}
-		/>
-	);
+	if (currentItem.hasOwnProperty('id')) {
+		return view === 'node' ? (
+			<NodePane
+				currentItem={currentItem}
+				nodeLabel={nodeLabel}
+				setNodeLabel={setNodeLabel}
+			/>
+		) : (
+			<EdgePane
+				currentItem={currentItem}
+				edgeLabel={edgeLabel}
+				setEdgeLabel={setEdgeLabel}
+			/>
+		);
+	} else {
+		return <></>;
+	}
 };
 
 export default EditPanes;
