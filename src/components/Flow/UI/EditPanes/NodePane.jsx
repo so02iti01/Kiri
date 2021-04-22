@@ -1,5 +1,3 @@
-import jsStringEscape from 'js-string-escape';
-
 const NodePane = ({ info, nodeLabel, setNodeLabel }) => {
 	return (
 		<div className='absolute top-16 right-16 mnw-10r'>
@@ -12,7 +10,7 @@ const NodePane = ({ info, nodeLabel, setNodeLabel }) => {
 							type='text'
 							placeholder={info?.data?.label}
 							value={nodeLabel}
-							onChange={(e) => setNodeLabel(jsStringEscape(e.target.value))}
+							onChange={(e) => setNodeLabel(e.target.value)}
 						></textarea>
 					</div>
 				</div>
