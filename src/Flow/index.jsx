@@ -195,8 +195,6 @@ const Flow = () => {
 			<CreateNodeButtons
 				currentItem={currentItem}
 				elements={elements}
-				setElements={setElements}
-				getId={getId}
 				createNode={createNode}
 			/>
 

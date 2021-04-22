@@ -1,7 +1,4 @@
-import { useState } from 'react';
-
-const CreateNodeButtons = ({ currentItem, createNode, setElements, getId }) => {
-	const [showLabels, setShowLabels] = useState(false);
+const CreateNodeButtons = ({ currentItem, createNode }) => {
 
 	const createNodeByType = (ev, type) => {
 		createNode(ev, currentItem, 'bottom', type);
@@ -30,8 +27,6 @@ const CreateNodeButtons = ({ currentItem, createNode, setElements, getId }) => {
 			<div className='h-100p absolute top-0 right-16 flex-c portrait-hide'>
 				<div
 					className='flex-c'
-					onMouseOver={() => setShowLabels(true)}
-					onMouseOut={() => setShowLabels(false)}
 				>
 					{nodes.map((e, i) => (
 						<button
