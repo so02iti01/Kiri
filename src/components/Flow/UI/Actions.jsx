@@ -26,7 +26,7 @@ const Actions = ({ currentItem, createNode, setElements, getId }) => {
 	];
 
 	return (
-		<div className='h-100p absolute top-0 right-16 flex-c'>
+		<div className='h-100p absolute top-0 right-16 flex-c portrait-hide'>
 			<div
 				className='flex-c'
 				onMouseOver={() => setShowLabels(true)}

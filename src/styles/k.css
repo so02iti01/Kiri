@@ -22,6 +22,8 @@ button {
 	min-height: 1.65rem;
 	height: 1.65rem;
 	max-height: 30vh;
+	-webkit-appearance: none;
+	appearance: none;
 	transition: var(--duration-fast-02) var(--expressive-standard);
 }
 .k-input:focus {
@@ -32,4 +34,11 @@ button {
 	display: flex;
 	overflow-x: scroll;
 	max-width: 100%;
+}
+
+@media only screen and (max-width: 472px) {
+	.portrait-special-w {
+		top: 64px !important;
+		width: calc(100% - 2rem);
+	}
 }

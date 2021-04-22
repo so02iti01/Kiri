@@ -5,7 +5,7 @@ const BaseModal = ({ state, setState, title, children }) => (
 		onClick={() => setState(false)}
 	>
 		<div
-			className='j-modal-inner mnw-32r'
+			className='j-modal-inner mnw-32r tablet-mnw-20r'
 			onClick={(e) => e.stopPropagation()}
 		>
 			<div className='j-modal-content'>

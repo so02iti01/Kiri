@@ -18,7 +18,7 @@ const BottomLinks = ({ setKeyboardModal, setHelpModal, settings }) => {
 	];
 
 	return (
-		<div className='absolute bottom-16 left-0 right-0 w-100p px-1r flex flex-row align-c'>
+		<div className='absolute bottom-16 left-0 right-0 w-100p px-1r flex flex-row align-c portrait-hide'>
 			<div className={`w-100p ${settings.miniMap ? 'flex flex-row align-c' : 'flex-sb'}`}>
 				<div className='flex flex-row align-c'>
 					{links.map((e) => (
