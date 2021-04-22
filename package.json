@@ -1,6 +1,6 @@
 {
-  "name": "flowio",
-  "version": "0.1.0",
+  "name": "kiri",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -19,7 +19,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "origin": "git push -u origin main",
+    "prod": "git push -u prod main",
+    "pushAll": "yarn origin && yarn prod"
   },
   "eslintConfig": {
     "extends": [
