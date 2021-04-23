@@ -46,6 +46,24 @@ const HelpModal = ({ helpModal, setHelpModal }) => {
 			<h5>Connectors</h5>
 			<p>You can connect two nodes by dragging from one small circle to another.</p>
 
+			<h5>Performance</h5>
+			<p>There are a few things you can do to increase performance.</p>
+
+			<ul>
+				<li>
+					<span>Disable the Background</span>
+				</li>
+				<li>
+					<span>Disable the Mini-Map</span>
+				</li>
+				<li>
+					<span>Use a Chromium-based browser or Safari (FireFox does alright on occasion)</span>
+				</li>
+				<li>
+					<span>Use non-animated connector lines</span>
+				</li>
+			</ul>
+
 			<h5>Additional info</h5>
 			<p>For power users, you can view the Keyboard shortcuts by pressing <strong>K</strong> or by clicking the link in the bottom-left.</p>
 		</BaseModal>
