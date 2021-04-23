@@ -18,15 +18,16 @@ const ImportModal = ({ setElements, importModal, setImportModal }) => {
 				placeholder={'[ paste your nodes here ]'}
 				onChange={(e) => setImportData(e.target.value)}
 				value={importData}
-			>
-			</textarea>
+			></textarea>
 
 			<div className='w-100p flex flex-row align-c justify-e'>
 				<button
 					className='j-button sm'
 					onClick={() => {
-						setElements(JSON.parse(importData));
-						setImportModal(false);
+						if (importData.trim()) {
+							setElements(JSON.parse(importData.trim()));
+							setImportModal(false);
+						}
 					}}
 				>
 					<span>Import</span>
