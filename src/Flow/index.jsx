@@ -217,6 +217,7 @@ const Flow = () => {
 			/>
 
 			<UtilityLinks
+				elements={elements}
 				setKeyboardModal={setKeyboardModal}
 				setHelpModal={setHelpModal}
 				settings={settings}

@@ -1,9 +1,19 @@
-const UtilityLinks = ({ setKeyboardModal, setHelpModal, settings }) => {
+import { useEffect, useState } from "react";
+
+const UtilityLinks = ({
+	elements,
+	setKeyboardModal,
+	setHelpModal,
+	settings,
+}) => {
+	const [nodeLength, setNodeLength] = useState();
+	const [edgeLength, setEdgeLength] = useState();
+
 	const actions = [
 		{
 			label: 'Keyboard shortcuts (K)',
 			callback: () => setKeyboardModal(true),
-			className: 'portrait-hide'
+			className: 'portrait-hide',
 		},
 		{
 			label: 'Help (H)',
@@ -18,9 +28,18 @@ const UtilityLinks = ({ setKeyboardModal, setHelpModal, settings }) => {
 		},
 	];
 
+	useEffect(() => {
+		setNodeLength(elements.filter((e) => e.source === undefined).length);
+		setEdgeLength(elements.filter((e) => e.type === undefined).length);
+	}, [elements])
+
 	return (
-		<div className='absolute bottom-16 left-0 right-0 w-100p px-1r flex flex-row align-c'>
-			<div className={`w-100p ${settings.miniMap ? 'flex flex-row align-c' : 'flex-sb'}`}>
+		<div className='absolute bottom-16 left-0 right-0 w-100p px-1r'>
+			<div
+				className={`w-100p ${
+					settings.miniMap ? 'flex flex-row align-c' : 'flex-sb align-e'
+				}`}
+			>
 				<div className='flex flex-row align-c'>
 					{actions.map((e) => (
 						<button
@@ -35,16 +54,23 @@ const UtilityLinks = ({ setKeyboardModal, setHelpModal, settings }) => {
 
 				<div className='flex flex-row align-c portrait-hide'>
 					{links.map((e) => (
-						<a	
+						<a
 							href={e.to}
 							target='_blank'
-							rel="noreferrer"
+							rel='noreferrer'
 							className='j-link shallow-link fs-xs text-dynamic-07 bg-transparent mr-0-5r'
 							key={e.label}
 						>
 							{e.label}
 						</a>
 					))}
+
+					<div className='px-0-5r py-0-25r backdrop-blur-5 border-ui-2 radius-4'>
+						<span className='fs-sm text-dynamic-06'>
+							<span>{nodeLength} node{nodeLength === 1 ? '' : 's'}</span>
+							<span>{', '}{edgeLength} connector{edgeLength === 1 ? '' : 's'}</span>
+						</span>
+					</div>
 				</div>
 			</div>
 		</div>
