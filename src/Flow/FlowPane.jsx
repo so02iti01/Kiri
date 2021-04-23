@@ -107,6 +107,7 @@ const FlowPane = ({
 				onLoad={onLoad}
 				onEdgeUpdate={onEdgeUpdate}
 				maxZoom={2.5}
+				multiSelectionKeyCode={33} // page-up
 			>
 				{settings.background && (
 					<Background
