@@ -106,6 +106,7 @@ const FlowPane = ({
 				snapGrid={[16, 16]}
 				onLoad={onLoad}
 				onEdgeUpdate={onEdgeUpdate}
+				maxZoom={2.5}
 			>
 				{settings.background && (
 					<Background

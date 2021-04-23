@@ -36,32 +36,34 @@ const NodeActions = ({
 
 	return (
 		<div className='absolute h-100p flex-c left-16 top-0 bottom-0'>
-			<div
-				className={`backdrop-blur-5 border-ui-2 radius-${
-					view === 'node' ? '90' : '8'
-				}`}
-			>
-				{currentItem && view === 'node' && (
-					<Nodes
-						currentItem={currentItem}
-						elements={elements}
-						setElements={setElements}
-						createNode={createNode}
-						createConnectedNode={createConnectedNode}
-					/>
-				)}
+			{currentItem.hasOwnProperty('id') && (
+				<div
+					className={`backdrop-blur-5 border-ui-2 radius-${
+						view === 'node' ? '90' : '8'
+					}`}
+				>
+					{view === 'node' && (
+						<Nodes
+							currentItem={currentItem}
+							elements={elements}
+							setElements={setElements}
+							createNode={createNode}
+							createConnectedNode={createConnectedNode}
+						/>
+					)}
 
-				{currentItem.source && view === 'edge' && (
-					<Edges
-						elements={elements}
-						setElements={setElements}
-						currentItem={currentItem}
-						modifyNode={modifyNode}
-					/>
-				)}
-			</div>
+					{view === 'edge' && (
+						<Edges
+							elements={elements}
+							setElements={setElements}
+							currentItem={currentItem}
+							modifyNode={modifyNode}
+						/>
+					)}
+				</div>
+			)}
 
-			{currentItem && view === 'node' && currentItem.type === 'default' && (
+			{view === 'node' && currentItem.type === 'default' && (
 				<div className='flex-c mt-1r'>
 					{colors.map((e) => (
 						<button
@@ -70,8 +72,9 @@ const NodeActions = ({
 							onClick={() => {
 								let n = {
 									...currentItem,
-									className: e.color === 'gray' ? '' : e.color
-								}
+									className:
+										e.color === 'gray' ? '' : e.color,
+								};
 
 								setCurrentItem(n);
 							}}
