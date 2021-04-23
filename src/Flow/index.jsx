@@ -125,14 +125,14 @@ const Flow = () => {
 			y: pos === 'bottom' ? y + 100 : y,
 		};
 
-		setElements((e) =>
-			e.concat({
-				id: identifier,
-				type: type,
-				data: { label: 'New node' },
-				position: position,
-			})
-		);
+		let n = {
+			id: identifier,
+			type: type,
+			data: { label: 'Node' },
+			position: position,
+		};
+
+		setElements(e => e.concat(n));
 
 		return identifier;
 	};

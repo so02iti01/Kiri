@@ -1,6 +1,9 @@
+import { useEffect, useState } from 'react';
 import { icons } from '../../../config/icons';
 
 const Edges = ({ elements, setElements, currentItem, modifyNode }) => {
+	const [isAnimated, setIsAnimated] = useState(currentItem.animated);
+
 	const actions = [
 		{
 			label: 'Curvy',
@@ -38,8 +41,25 @@ const Edges = ({ elements, setElements, currentItem, modifyNode }) => {
 		},
 	];
 
+	useEffect(() => {
+		modifyNode(currentItem, 'animated', isAnimated);
+	}, [isAnimated]);
+
 	return (
 		<>
+			<div className='flex p-0-25r'>
+				<button
+					className='j-button no-push minimal app radius-90 icon-only set-stroke'
+					onClick={() => setIsAnimated(!isAnimated)}
+					aria-label={'Animate'}
+					title={'Animate'}
+				>
+					<i className='j-icon'>{icons.stars}</i>
+				</button>
+			</div>
+
+			<div className='w-100p h-1 ui-2'></div>
+
 			<div className='flex p-0-25r'>
 				{actions.map((e) => (
 					<button
