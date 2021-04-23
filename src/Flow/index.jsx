@@ -11,14 +11,7 @@ import NodeActions from './UI/NodeActions';
 import EditPanes from './UI/EditPanes';
 
 const Flow = () => {
-	const initialElements = [
-		{
-			id: '1',
-			type: 'input',
-			data: { label: 'Central topic' },
-			position: { x: 0, y: 0 },
-		},
-	];
+	const initialElements = [{"id":"1","type":"input","data":{"label":"Welcome to Kiri!"},"position":{"x":1,"y":0}},{"id":"node_2beqeo","type":"default","data":{"label":"Any data you put here stays in your browser."},"position":{"x":77,"y":103}},{"id":"node_yh4it","source":"1","target":"node_2beqeo","animated":false},{"id":"node_hkbwer","type":"default","data":{"label":"In fact, Kiri doesn't even have a back-end!"},"position":{"x":77,"y":203},"className":"green"},{"id":"node_4my66p","source":"node_2beqeo","target":"node_hkbwer","animated":false},{"id":"node_ten77c","type":"output","data":{"label":"Press H to learn how to use Kiri."},"position":{"x":-97,"y":102}},{"source":"1","sourceHandle":null,"target":"node_ten77c","targetHandle":null,"id":"reactflow__edge-1null-node_ten77cnull"}];
 
 	const initialSettings = {
 		background: true,
