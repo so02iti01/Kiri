@@ -13,7 +13,8 @@ const Keyboard = ({
 	importModal,
 	setImportModal,
 	settingsModal,
-	setSettingsModal
+	setSettingsModal,
+	closeAllModals,
 }) => {
 	const handleEnter = (e) => {
 		if (currentItem) {
@@ -30,8 +31,10 @@ const Keyboard = ({
 	return (
 		<div>
 			<KeyboardEventHandler
-				handleKeys={['enter', 'tab', 'k', 'h', 'e', 'i', 'space', 's']}
+				handleKeys={['enter', 'tab', 'k', 'h', 'e', 'i', 'space', 's', 'esc']}
 				onKeyEvent={(key, e) => {
+					if (key.length === 1) closeAllModals();
+
 					switch (key) {
 						case 'enter':
 							handleEnter(e);
@@ -56,8 +59,19 @@ const Keyboard = ({
 							break;
 						case 'space':
 							e.preventDefault();
-							document.getElementById('currentNodeName').focus();
-							document.getElementById('currentNodeName').select();
+
+							try {
+								document
+									.getElementById('currentNodeName')
+									.focus();
+								document
+									.getElementById('currentNodeName')
+									.select();
+							} catch {}
+
+							break;
+						case 'esc':
+							closeAllModals();
 							break;
 						default:
 							break;

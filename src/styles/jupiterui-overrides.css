@@ -14,8 +14,8 @@
 }
 
 .j-button.minimal:hover {
-	color: white !important;
-	background-color: var(--accent) !important;
+	color: var(--text-color) !important;
+	background-color: var(--ui-2) !important;
 }
 .j-button.minimal > i {
 	transition: var(--duration-fast-02) var(--expressive-standard);

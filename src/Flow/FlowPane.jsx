@@ -32,12 +32,12 @@ const FlowPane = ({
 	setNodeType,
 	currentItem,
 	setCurrentItem,
+	closeAllModals
 }) => {
 	const {
 		themes: { theme },
 	} = useTheme();
 
-	// Events
 	const onElementsRemove = (elementsToRemove) => {
 		if (elementsToRemove.length === elements.length) {
 			setElements([{
@@ -54,17 +54,6 @@ const FlowPane = ({
 
 	const onConnect = (params) => {
 		setElements((els) => addEdge(params, els));
-	};
-
-	const setCurrentNode = (el) => {
-		setNodeLabel(el?.data?.label);
-
-		let n = {
-			...elements.filter((e) => e.id === el.id)[0],
-			position: el.position,
-		};
-
-		setCurrentItem(n);
 	};
 
 	const onNodeDoubleClick = () => {
@@ -90,7 +79,16 @@ const FlowPane = ({
 	const onEdgeUpdate = (oldEdge, newConnection) =>
     setElements((els) => updateEdge(oldEdge, newConnection, els));
 
-	// Data modifications
+	const setCurrentNode = (el) => {
+		setNodeLabel(el?.data?.label);
+
+		let n = {
+			...elements.filter((e) => e.id === el.id)[0],
+			position: el.position,
+		};
+
+		setCurrentItem(n);
+	};
 
 	return (
 		<div className='h-screen w-screen'>
@@ -101,7 +99,6 @@ const FlowPane = ({
 				onNodeDragStop={(ev, el) => setCurrentNode(el)}
 				onSelectionChange={onSelectionChange}
 				onConnect={onConnect}
-				deleteKeyCode={46}
 				onNodeDoubleClick={onNodeDoubleClick}
 				panOnScroll
 				zoomOnScroll={false}
@@ -160,6 +157,7 @@ const FlowPane = ({
 				setImportModal={setImportModal}
 				settingsModal={settingsModal}
 				setSettingsModal={setSettingsModal}
+				closeAllModals={closeAllModals}
 			/>
 		</div>
 	);

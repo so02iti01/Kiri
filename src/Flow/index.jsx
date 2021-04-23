@@ -107,6 +107,14 @@ const Flow = () => {
 	const [importModal, setImportModal] = useState(false);
 	const [settingsModal, setSettingsModal] = useState(false);
 
+	const closeAllModals = () => {
+		setKeyboardModal(false);
+		setHelpModal(false);
+		setExportModal(false);
+		setImportModal(false);
+		setSettingsModal(false);
+	}
+
 	const createNode = (ev, el, pos = 'bottom', type = 'default') => {
 		ev.preventDefault();
 
@@ -190,6 +198,7 @@ const Flow = () => {
 				setNodeType={setNodeType}
 				currentItem={currentItem}
 				setCurrentItem={setCurrentItem}
+				closeAllModals={closeAllModals}
 			/>
 
 			<CreateNodeButtons
