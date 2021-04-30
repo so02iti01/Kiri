@@ -6,7 +6,7 @@ import ReactFlow, {
 	addEdge,
 	isNode,
 	MiniMap,
-	updateEdge
+	updateEdge,
 } from 'react-flow-renderer/nocss';
 import 'react-flow-renderer/dist/style.css';
 
@@ -32,7 +32,7 @@ const FlowPane = ({
 	setNodeType,
 	currentItem,
 	setCurrentItem,
-	closeAllModals
+	closeAllModals,
 }) => {
 	const {
 		themes: { theme },
@@ -40,12 +40,14 @@ const FlowPane = ({
 
 	const onElementsRemove = (elementsToRemove) => {
 		if (elementsToRemove.length === elements.length) {
-			setElements([{
-				id: '1',
-				type: 'input',
-				data: { label: 'Central topic' },
-				position: { x: 0, y: 0 },
-			}]);
+			setElements([
+				{
+					id: '1',
+					type: 'input',
+					data: { label: 'Central topic' },
+					position: { x: 0, y: 0 },
+				}
+			]);
 			return;
 		}
 
@@ -77,7 +79,7 @@ const FlowPane = ({
 	};
 
 	const onEdgeUpdate = (oldEdge, newConnection) =>
-    setElements((els) => updateEdge(oldEdge, newConnection, els));
+		setElements((els) => updateEdge(oldEdge, newConnection, els));
 
 	const setCurrentNode = (el) => {
 		setNodeLabel(el?.data?.label);
@@ -115,12 +117,12 @@ const FlowPane = ({
 						variant={settings.backgroundType}
 						color={
 							settings.backgroundType === 'lines'
-								? theme === 'dark'
+								? theme === 'dark' // lines
 									? '#444'
 									: '#ddd'
-								: theme === 'dark'
-								? '#777'
-								: '#000'
+								: theme === 'dark' // dots
+									? '#777'
+									: '#000'
 						}
 						gap={16}
 						className={'ui'}

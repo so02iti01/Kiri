@@ -38,9 +38,7 @@ const NodeActions = ({
 		<div className='absolute h-100p flex-c left-16 top-0 bottom-0'>
 			{currentItem.hasOwnProperty('id') && (
 				<div
-					className={`backdrop-blur-5 border-ui-2 radius-${
-						view === 'node' ? '90' : '8'
-					}`}
+					className={'backdrop-blur-5 border-ui-2 radius-90'}
 				>
 					{view === 'node' && (
 						<Nodes
